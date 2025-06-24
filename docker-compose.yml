@@ -2,7 +2,6 @@ services:
   gitlab:
     image: gitlab/gitlab-ce:${GITLAB_CE_VERSION}
     restart: always
-    container_name: gitlab
     hostname: "${GITLAB_HOST}"
     environment:
       - TZ=${TZ}
@@ -24,7 +23,6 @@ services:
   pages:
     image: gitlab/gitlab-ce:${GITLAB_CE_VERSION}
     restart: always
-    container_name: gitlab_pages
     hostname: "${PAGES_HOST}"
     environment:
       - TZ=${TZ}
@@ -53,7 +51,6 @@ services:
   runner:
     image: gitlab/gitlab-runner:${GITLAB_RUNNER_VERSION}
     restart: always
-    container_name: gitlab_runner
     environment:
       - CI_SERVER_URL=https://${GITLAB_HOST}/
     volumes:
@@ -74,7 +71,6 @@ services:
   redis:
     image: redis:${REDIS_VERSION}
     restart: always
-    container_name: gitlab_redis
     command:
       - --loglevel warning
     volumes:
