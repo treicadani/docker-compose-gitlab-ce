@@ -93,3 +93,8 @@ pages_nginx['listen_https'] = false
 gitlab_pages['enable'] = true
 gitlab_pages['inplace_chroot'] = true
 gitlab_pages['listen_proxy'] = "0.0.0.0:8090"
+
+gitlab_pages['artifacts_server'] = {
+  'url' => 'https://${GITLAB_HOST}',
+  'auth_token' => '${GITLAB_API_TOKEN}'
+}
